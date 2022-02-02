@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/style.min.css">
+    
+    <!-- Useful meta tags -->
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://kit.fontawesome.com/6d0367a1ce.js" crossorigin="anonymous"></script>
+    <meta name="robots" content=", follow">
+    <meta name="google" content="notranslate">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cambay&family=Rowdies&family=Rubik:wght@400;500;700&family=Sarpanch&display=swap" rel="stylesheet">
+    
+    <title>Travels</title>
+</head>
+<body class="admin__bg">
+    
+    
+       
+        <div id="sidebar" class="sidebar">
+            <div class="sidebar__header">
+                <div id="close" class="close">
+                    <span class="close__btn"></span>
+                </div>
+            </div>
+            <nav id="nav__admin" class="nav__admin">
+                <a href="index.html">На сайт</a>
+            </nav>
+        </div>
+    
+    <section class="section__admin">
+        <div class="container admin__panel">
+            <h1>Добавить тур</h1>
+            <form class="admin__table">
+                <label>Название</label>
+                <input type="text"/>
+                <label>Дата начала</label>
+                <input type="date"/>
+                <label>Дата окончания</label>
+                <input type="date"/>
+                <label>Цена</label>
+                <input type="number" placeholder="1"/>
+                <label>Билеты max</label>
+                <input type="number" placeholder="1"/>
+                <label>Количество доступных билетов</label>
+                <input type="number" placeholder="1"/>
+                <label>Описание</label>
+                <input type="text"/>
+                <label>Страна</label>
+                <select class="select-css">
+                    <option value="Страна1" selected>Страна1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select>
+                <label>Город</label>
+                <select class="select-css">
+                    <option value="Отель1" selected>Отель1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select>            
+                <label>Отель</label>
+                <select>
+                    <option value="Отель 1" selected>Отель 1</option>
+                    <option>Отель 2</option>
+                    <option>Отель 3</option>
+                    <option>Отель 4</option>
+                </select>
+                <button class="btn__add">Добавить</button>
+            </form>
+        </div>    
+    </section>
+    <!-- JS -->
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
