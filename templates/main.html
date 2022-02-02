@@ -1,0 +1,203 @@
+{% extends "base.html" %}
+
+{%  block content %}
+    <section class="section__prev">
+        <div class="container no__pad">
+            <h1 class="title__video">Лучшие туры по всему миру</h1>
+            <h4 class="subtitle__video">Вы сами выбираете ваш отдых</h4>
+        </div>
+         <div class=" no__pad">
+            <div class="search">
+               
+                    <form class="form__search">
+                        <div>
+                            <label>Город</label>
+                                <input type="search" class="towns" placeholder="Москва"/>
+                        </div>
+                        <div>
+                            <label>Дата заезда</label>
+                                <input type="date" class="date-on"/>
+                        </div>
+                        <div>
+                            <label>Дата выезда</label>
+                                <input type="date" class="date-to" />
+                        </div>
+                        <div>
+                            <label>Количество человек</label>
+                                <select class="select-css">
+                                    <option value="1" selected>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                </select>
+                        </div>
+                        <button type="submit">Поиск</button>
+                    </form>
+                    
+                </div>
+    
+            </div>
+    </section>
+    
+    <section id="tour" class="section">
+        <div class="container no__pad">
+    
+            <h1 class="promotion__title">Туры</h1>
+            {% for tour in data %}
+                <div class="tours__card">
+                <img src="/static/images/Exotic-tropical-beach-sunse.jpg" class="card__img" alt="">
+                <div class="content__card">
+                    <h3 class="title__card">{{ tour.name }}</h3>
+                    <p class="desc__card">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita neque pariatur praesentium magnam nihil dolore esse eos culpa. Blanditiis est iste exercitationem, architecto quas asperiores at! In inventore ratione vitae.</p>
+                    <div class="footer__card">
+                        <div class="city">
+                            <h3 class="subtitle__card">Город</h3>
+                            <h4 class="subtext__card">Город название</h4>
+                        </div>
+                        <div class="sale">
+                            <h3 class="subtitle__card">Цена</h3>
+                            <h4 class="subtext__card" value="100">100 р</h4>
+                        </div>
+                        <div class="date">
+                            <h3 class="subtitle__card">Дата заезда</h3>
+                             <h4 class="subtext__card">дата</h4>
+
+                        </div>
+                        <div class="date">
+                            <h3 class="subtitle__card">Дата выезда</h3>
+                            <h4 class="subtext__card">дата</h4>
+                        </div>
+                        <div class="people">
+                            <h3 class="subtitle__card">Количество людей</h3>
+                            <label>
+                                <select class="select-css">
+                                    <option value="1" selected>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                </select>
+                            </label>
+                        </div>
+                        <button class="btn__card" type="submit">Купить билет</button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    
+    
+    <section  class="section">
+        <div class="container no__pad">
+            <h1 class="promotion__title">Акции</h1>
+            <div class="promotion">
+                <div>
+                    <img src="https://attaches.1001tur.ru/partner/s_offers/s_offers__1642750198619.jpg" alt="">
+                    <p class="promotion__text">Раннее бронирование туров в Турцию по предоплате всего 10%</p>
+                </div>
+                <div>
+                    <img src="https://attaches.1001tur.ru/partner/s_offers/s_offers__1643267812300.jpg" alt="">
+                    <p class="promotion__text">Зимний Сахалин с кэшбэком 20%!</p>
+                </div>
+                <div>
+                    <img src="https://attaches.1001tur.ru/hotels/gallery/20805/286-266_57761635153757.jpg" alt="">
+                    <p class="promotion__text">Скидка на все отели мира 5%</p>
+                </div>
+                <div>
+                    <img src="https://attaches.1001tur.ru/hotels/gallery/663664/0-550_lgmf179eddd7-24951599899001.jpg" alt="">
+                    <p class="promotion__text">Номер в отеле победителю конкурса!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="o-nas" class="section">
+        <div class="container no__pad">
+            <h1 class="promotion__title">Каждый найдет свой отдых</h1>
+            <div class="info">
+                <a href="#" class="info__item">
+                    <i class="fas fa-umbrella-beach"></i>
+                    <div>
+                        <h3 class="info__title">Пляжные туры</h3>
+                        <h4 class="info__subtitle">Загорать и купаться</h4>
+                    </div>
+                </a>
+                <a href="#" class="info__item">
+                    <i class="far fa-gem"></i>
+                   <div>
+                        <h3 class="info__title">VIP туры</h3>
+                        <h4 class="info__subtitle">Комфорт и роскошь</h4>
+                    </div>
+                </a>
+    
+                <a href="#" class="info__item">
+                    <i class="fas fa-bus"></i>
+                    <div>
+                        <h3 class="info__title">Экскурсионные туры</h3>
+                        <h4 class="info__subtitle">Изучаем отдыхая</h4>
+                    </div>
+                </a>
+    
+                <a href="#" class="info__item">
+                    <i class="fas fa-fire"></i>
+                    <div>
+                        <h3 class="info__title">Раннее бронирование</h3>
+                        <h4 class="info__subtitle">Выгода до 35%</h4>
+                    </div>
+                </a>
+    
+                <a href="#" class="info__item">
+                  
+                    <i class="fas fa-glass-cheers"></i>
+                   <div>
+                        <h3 class="info__title">Новогодние туры</h3>
+                        <h4 class="info__subtitle">Снежки и шампанское</h4>
+                    </div>
+                </a>
+    
+                <a href="#" class="info__item">
+                    <i class="fas fa-piggy-bank"></i>
+                   <div>
+                        <h3 class="info__title">Туры в кредит</h3>
+                        <h4 class="info__subtitle">Отдыхай сейчас!</h4>
+                    </div>
+                </a>
+    
+                <a href="#" class="info__item">
+                    <i class="fas fa-skiing"></i>
+                    <div>
+                        <h3 class="info__title">Горнолыжные туры</h3>
+                        <h4 class="info__subtitle">Горнолыжные туры</h4>
+                    </div>
+                </a>
+    
+                <a href="#" class="info__item">
+                    <i class="far fa-sun"></i>
+                   <div>
+                        <h3 class="info__title">Отдых с детьми</h3>
+                        <h4 class="info__subtitle">Отдых с детьми</h4>
+                   </div>
+                </a>
+    
+    
+                <a href="#" class="info__item">
+                    <i class="fas fa-ship"></i>
+                   <div>
+                        <h3 class="info__title">Морские круизы</h3>
+                        <h4 class="info__subtitle">Морские круизы</h4>
+                   </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="content no__pad">
+            <p>"Сайт выполнен студентом группы ПИ-191 Хассаном Ибрагимовичем Киссанович для защиты курсовой работы 2022 г."</p>
+        </div>
+    </footer>
+{% endblock content %}
+    <!-- JS -->
+{% block scripts %}
+    <script src="/static/js/app.js"></script>
+{% endblock scripts %}
