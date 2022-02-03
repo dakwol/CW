@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cambay&family=Rowdies&family=Rubik:wght@400;500;700&family=Sarpanch&display=swap" rel="stylesheet">
-
+    <script src="https://unpkg.com/imask"></script>
     <title>Travels</title>
 
 </head>
@@ -28,15 +28,9 @@
       </video>
     </div>
 
-    <!--Видеофон-->    <header class="header container">
-
-        <nav class="nav">
-            <div class="header__logo">Travels</div>
-            <div class="nav__container">
-                <a href="#tour" class="nav__item">Туры</a>
-                <a href="#o-nas" class="nav__item">О нас</a>
-            </div>
-        </nav>
+    <!--Видеофон--> <header class="header container">
+    {% block header %}
+    {% endblock header %}
     </header>
 
 <div class="content-container">{% block content %}{% endblock content %}</div>

@@ -21,6 +21,6 @@ from main.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index),
-    path('tours/', include('tours.urls')),
-    path('about-us/', about_us),
+    path('create_tour/', create_tour),
+
 ]
