@@ -392,6 +392,9 @@ body {
         margin-right: 0; }
       .header .nav .nav__container a:hover {
         background: rgba(255, 255, 255, 0.2); }
+        .nav__item-btn{
+          padding: 10px 20px;
+        }
 
 .video-bg {
   position: fixed;
@@ -459,7 +462,6 @@ body {
       width: 95%; } }
 
 .form__search {
-  overflow: hidden;
   border: 1px solid #FFFFFF;
   border-radius: 10px;
   display: grid;
@@ -620,6 +622,17 @@ select {
     .promotion div:hover .promotion__text {
       transform: translateY(0);
       opacity: 1; }
+
+      .reys__none{
+        font-size: 16px;
+        color: #202020;
+        border-radius: 25px;
+        padding: 10px 30px;
+        text-align: center;
+        border:2px solid #a82525 ;
+        box-shadow: 8px 7px 5px rgba(0, 0, 0, 0.17);
+        margin: 20px 0;
+      }
 
 .info {
   display: grid;
@@ -862,7 +875,7 @@ button {
 .no__pad {
   padding: 0; }
 
-.footer {
+footer {
   width: 100%;
   text-align: center;
   background-color: #202020;

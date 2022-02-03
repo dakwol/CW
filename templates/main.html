@@ -2,6 +2,7 @@
 <head>
     <script src="https://unpkg.com/imask"></script>
 </head>
+
 {% block header %}
     <nav class="nav">
             <div class="header__logo">Travels</div>
@@ -13,7 +14,7 @@
                             <span id="account" class="nav__item">{{ user.username }}</span>
                             <span class="nav__item">{{ user.first_name }}</span>
                             <span id="price" class="nav__item">Пополнить</span>
-                            <button class="nav__item" type="submit" value="1" name="exit" >Выход</button>
+                            <button class="nav__item-btn" type="submit" value="1" name="exit" >Выход</button>
                         </form>
                     {% else %}
                         <span id="account" class="nav__item">Аккаунт</span>
@@ -67,6 +68,7 @@
         <div class="container no__pad">
     
             <h1 class="promotion__title">Туры</h1>
+            
             {% for tour in data %}
                 <div class="tours__card">
                 <img src="{{ tour.pic }}" class="card__img" alt="">
