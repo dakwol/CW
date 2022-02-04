@@ -33,43 +33,34 @@
     <section class="section__admin">
         <div class="container admin__panel">
             <h1>Добавить тур</h1>
-            <form class="admin__table">
+            <form class="admin__table" method="post">
+                {% csrf_token %}
                 <label>Название</label>
-                <input type="text"/>
+                {{ form.name }}
                 <label>Дата начала</label>
-                <input type="date"/>
+                {{ form.date_start }}
                 <label>Дата окончания</label>
-                <input type="date"/>
+                {{ form.date_end }}
                 <label>Цена</label>
-                <input type="number" placeholder="1"/>
+                {{ form.price }}
                 <label>Билеты max</label>
-                <input type="number" placeholder="1"/>
+                {{ form.tickets_max }}
                 <label>Количество доступных билетов</label>
-                <input type="number" placeholder="1"/>
+                {{ form.tickets_now }}
                 <label>Описание</label>
-                <input type="text"/>
+                {{ form.description }}
+                <label>Изображение</label>
+                {{ form.pic }}
                 <label>Страна</label>
-                <select class="select-css">
-                    <option value="Страна1" selected>Страна1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                </select>
+                {{ form.country }}
+                {% if show_button %}
+                    <button class="btn__add" name="Show_towns" value="1"}>Показать города</button>
+                {% endif %}
                 <label>Город</label>
-                <select class="select-css">
-                    <option value="Отель1" selected>Отель1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                </select>            
-                <label>Отель</label>
-                <select>
-                    <option value="Отель 1" selected>Отель 1</option>
-                    <option>Отель 2</option>
-                    <option>Отель 3</option>
-                    <option>Отель 4</option>
-                </select>
-                <button class="btn__add">Добавить</button>
+                {{ form.towns }}
+                {% if not show_button %}
+                    <button class="btn__add" name="create" value="1">Добавить</button>
+                {% endif %}
             </form>
         </div>    
     </section>

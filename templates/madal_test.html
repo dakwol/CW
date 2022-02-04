@@ -1,9 +1,29 @@
 {% extends "base.html" %}
 <head>
     <script src="https://unpkg.com/imask"></script>
-    <script type="text/javascript" src="/static/js/modal.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(function() {
+                $( "#some_flag" ).dialog({
+                    modal: true,
+                    closeOnEscape: false,
+                    dialogClass: "no-close",
+                    resizable: false,
+                    draggable: false,
+                    width: 600,
+                    buttons: [
+                        {
+                            text: "OK",
+                            click: function() {
+                            $( this ).dialog( "close" );
+                            }
+                        }
+                    ]
+                });
+            });
+        });
+    </script>
 </head>
-
 {% block header %}
     <nav class="nav">
             <div class="header__logo">Travels</div>
@@ -15,7 +35,7 @@
                             <span id="account" class="nav__item">{{ user.username }}</span>
                             <span class="nav__item">{{ user.first_name }}</span>
                             <span id="price" class="nav__item">Пополнить</span>
-                            <button class="nav__item-btn" type="submit" value="1" name="exit" >Выход</button>
+                            <button class="nav__item" type="submit" value="1" name="exit" >Выход</button>
                         </form>
                     {% else %}
                         <span id="account" class="nav__item">Аккаунт</span>
@@ -30,20 +50,19 @@
 {% endblock header %}
 
 {%  block content %}
-    {% if modal.flag  %}
+    {% if some_flag  %}
     <div id="some_flag" title="Some Flag">
          <div id="modal__reg" class="modal active">
-            <form class="modal__form" method="post">
-                {% csrf_token %}
-                <div id="close__mbxr" class="close__mbx">
-                    <div id="close__modal" class="close__modal"></div>
-                </div>
-                <h1 class="modal__title">{{ modal.method }}</h1>
-                <button type="submit" name="Ok" value="modal_ok" class="btn">ОК</button>
-            </form>
-        </div>
-        </div>
-    {% endif %}
+        <form class="modal__form" method="post">
+            <div id="close__mbxr" class="close__mbx">
+                <div id="close__modal" class="close__modal"></div>
+            </div>
+            <h1 class="modal__title">Регистрация</h1>
+            <button type="submit" name="register" value="register" class="btn">Регистрация</button>
+        </form>
+ </div>
+    </div>
+{% endif %}
     <section class="section__prev">
         <div class="container no__pad">
             <h1 class="title__video">Лучшие туры по всему миру</h1>
@@ -75,69 +94,69 @@
                         <button type="submit"  value="filter" name="filter">Поиск</button>
                     </form>
             </div>
-
+    
             </div>
     </section>
-
+    
     <section id="tour" class="section">
         <div class="container no__pad">
-
+    
             <h1 class="promotion__title">Туры</h1>
             {% if data.exists %}
-                {% for tour in data %}
-                    <div class="tours__card">
-                    <img src="{{ tour.pic }}" class="card__img" alt="">
-                    <div class="content__card">
-                        <h3 class="title__card">{{ tour.name }}</h3>
-                        <p class="desc__card">{{ tour.description }}</p>
-                        <div class="footer__card">
-                            <div class="city">
-                                <h3 class="subtitle__card">Города</h3>
-                                 {% for town in tour.towns.all %}
-                                     <h4 class="subtext__card">{{ town.name }}</h4>
-                                 {% endfor%}
-                            </div>
-                            <div class="sale">
-                                <h3 class="subtitle__card">Цена</h3>
-                                <h4 class="subtext__card" value="100">{{ tour.price }} р</h4>
-                            </div>
-                            <div class="date">
-                                <h3 class="subtitle__card">Дата заезда</h3>
-                                 <h4 class="subtext__card">{{ tour.date_start }}</h4>
-
-                            </div>
-                            <div class="date">
-                                <h3 class="subtitle__card">Дата выезда</h3>
-                                <h4 class="subtext__card">{{ tour.date_end }}</h4>
-                            </div>
-                            <div class="city">
-                                <h3 class="subtitle__card">Билеты</h3>
-                                <h4 class="subtext__card">{{ tour.tickets_now }} / {{ tour.tickets_max }}</h4>
-                            </div>
-                            {% if user.is_authenticated %}
-                                <form  method="post">
-                                {% csrf_token %}
-                                    <button id="price" class="btn__card" type="submit" name = "buy_ticket" value={{ tour.price }}|{{ tour.tickets_now }}|{{ tour.tickets_max }}>Купить билет</button>
-                                </form>
-                            {% endif %}
+            {% for tour in data %}
+                <div class="tours__card">
+                <img src="{{ tour.pic }}" class="card__img" alt="">
+                <div class="content__card">
+                    <h3 class="title__card">{{ tour.name }}</h3>
+                    <p class="desc__card">{{ tour.description }}</p>
+                    <div class="footer__card">
+                        <div class="city">
+                            <h3 class="subtitle__card">Города</h3>
+                             {% for town in tour.towns.all %}
+                                 <h4 class="subtext__card">{{ town.name }}</h4>
+                             {% endfor%}
                         </div>
+                        <div class="sale">
+                            <h3 class="subtitle__card">Цена</h3>
+                            <h4 class="subtext__card" value="100">{{ tour.price }} р</h4>
+                        </div>
+                        <div class="date">
+                            <h3 class="subtitle__card">Дата заезда</h3>
+                             <h4 class="subtext__card">{{ tour.date_start }}</h4>
+
+                        </div>
+                        <div class="date">
+                            <h3 class="subtitle__card">Дата выезда</h3>
+                            <h4 class="subtext__card">{{ tour.date_end }}</h4>
+                        </div>
+                        <div class="city">
+                            <h3 class="subtitle__card">Билеты</h3>
+                            <h4 class="subtext__card">{{ tour.tickets_now }} / {{ tour.tickets_max }}</h4>
+                        </div>
+                        {% if user.is_authenticated %}
+                            <form  method="post">
+                            {% csrf_token %}
+                                <button id="price" class="btn__card" type="submit" name = "buy_ticket" value={{ tour.price }}|{{ tour.tickets_now }}|{{ tour.tickets_max }}>Купить билет</button>
+                            </form>
+                        {% endif %}
                     </div>
                 </div>
-                {% endfor %}
+            </div>
+            {% endfor %}
             {% else %}
                 <div>
-                    <h1 class="res__none">Рейсов с такими данными мы не проводим, приносим прощения. Выберите другие параметры и попробуйте снова</h1>
+                    <h1 class="info__title">Рейсов с такими данными мы не проводим, приносим прощения. Выберите другие параметры и попробуйте снова</h1>
                 </div>
             {% endif %}
-            {% if user.is_authenticated and user.is_staff%}
+            {% if user.is_authenticated and user.is_staff %}
                 <form action="/create_tour">
                 <button class="btn__card" type="submit" name = "create_tour" value="1">Создать тур</button>
                 </form>
             {% endif %}
         </div>
     </section>
-
-
+    
+    
     <section  class="section">
         <div class="container no__pad">
             <h1 class="promotion__title">Акции</h1>
@@ -161,7 +180,7 @@
             </div>
         </div>
     </section>
-
+    
     <section id="o-nas" class="section">
         <div class="container no__pad">
             <h1 class="promotion__title">Каждый найдет свой отдых</h1>
@@ -180,7 +199,7 @@
                         <h4 class="info__subtitle">Комфорт и роскошь</h4>
                     </div>
                 </a>
-
+    
                 <a href="#" class="info__item">
                     <i class="fas fa-bus"></i>
                     <div>
@@ -188,7 +207,7 @@
                         <h4 class="info__subtitle">Изучаем отдыхая</h4>
                     </div>
                 </a>
-
+    
                 <a href="#" class="info__item">
                     <i class="fas fa-fire"></i>
                     <div>
@@ -196,16 +215,16 @@
                         <h4 class="info__subtitle">Выгода до 35%</h4>
                     </div>
                 </a>
-
+    
                 <a href="#" class="info__item">
-
+                  
                     <i class="fas fa-glass-cheers"></i>
                    <div>
                         <h3 class="info__title">Новогодние туры</h3>
                         <h4 class="info__subtitle">Снежки и шампанское</h4>
                     </div>
                 </a>
-
+    
                 <a href="#" class="info__item">
                     <i class="fas fa-piggy-bank"></i>
                    <div>
@@ -213,7 +232,7 @@
                         <h4 class="info__subtitle">Отдыхай сейчас!</h4>
                     </div>
                 </a>
-
+    
                 <a href="#" class="info__item">
                     <i class="fas fa-skiing"></i>
                     <div>
@@ -221,7 +240,7 @@
                         <h4 class="info__subtitle">Горнолыжные туры</h4>
                     </div>
                 </a>
-
+    
                 <a href="#" class="info__item">
                     <i class="far fa-sun"></i>
                    <div>
@@ -229,8 +248,8 @@
                         <h4 class="info__subtitle">Отдых с детьми</h4>
                    </div>
                 </a>
-
-
+    
+    
                 <a href="#" class="info__item">
                     <i class="fas fa-ship"></i>
                    <div>

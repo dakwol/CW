@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.models import User
+from main.models import *
 
 
 class CardForm(forms.Form):
@@ -25,3 +25,25 @@ class RegisterForm(forms.Form):
     username = forms.CharField(max_length=50, label='Имя пользователя')
     password = forms.CharField(max_length=50, label='Пароль', widget=forms.PasswordInput)
 
+
+class TourForm(forms.ModelForm):
+    class Meta:
+        model = Tour
+        fields = ['name', 'date_start', 'date_end', 'price', 'tickets_max', 'tickets_now', 'description', 'country',
+                  'towns', 'pic']
+
+    name = forms.CharField()
+    date_start = forms.DateField()
+    date_end = forms.DateField()
+    price = forms.IntegerField()
+    tickets_max = forms.IntegerField()
+    tickets_now = forms.IntegerField()
+    description = forms.CharField()
+    country = forms.ModelChoiceField(queryset=Country.objects.all())
+    towns = forms.ModelMultipleChoiceField(queryset=Town.objects.none(), widget=forms.CheckboxSelectMultiple)
+    pic = forms.CharField()
+
+
+class Modal_Window:
+    flag = False
+    method = ''
