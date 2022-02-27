@@ -984,7 +984,7 @@ footer {
     background-color: #fff;
     width: 500px;
     height: 600px;
-    color: #222;
+    color: #fff;
     padding: 4rem 6rem;
     display: flex;
     flex-direction: column;
@@ -1002,7 +1002,9 @@ footer {
     font-size: 20px;
     padding: 10px;
     margin-bottom: 20px;
-    border: 1px solid #222;
+    box-shadow: 1px 5px 6px 0px black;
+    background-color: #D09683;
+    border-radius: 25px;
   }
   
   .tiket__name{
@@ -1015,6 +1017,7 @@ footer {
     margin: 10px 0 0 0;
     padding: 0 0 10px 0;
     border-bottom: 1px dashed #000;
+
   }
   .tiket__item:last-child{
     border:0
