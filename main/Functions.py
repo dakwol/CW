@@ -1,3 +1,5 @@
+import datetime
+
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.shortcuts import redirect, render
@@ -56,6 +58,15 @@ def buy(request, modal):
             user.save()
             modal.flag = True
             modal.method = 'Успешная покупка'
+            ticket = Ticket()
+            ticket.tour = Tour.objects.get(id=post_catch[3])
+            tour = ticket.tour
+            tour.tickets_now = tour.tickets_now - 1
+            tour.save()
+            ticket.user = user
+            ticket.date = datetime.date.today()
+            ticket.time = datetime.datetime.now()
+            ticket.save()
         else:
             modal.flag = True
             modal.method = 'Билеты кончились'

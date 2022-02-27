@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import *
 
 
 # Create your models here
@@ -28,4 +29,11 @@ class Tour(models.Model):
     description = models.TextField()
     country = models.ForeignKey(Country, on_delete=models.CASCADE, default=None)
     towns = models.ManyToManyField(Town)
-    pic = models.TextField(default= "/static/images/Exotic-tropical-beach-sunse.jpg")
+    pic = models.TextField(default="/static/images/Exotic-tropical-beach-sunse.jpg")
+
+
+class Ticket(models.Model):
+    tour = models.ForeignKey(Tour, on_delete=models.CASCADE, default=None)
+    date = models.DateField()
+    time = models.TimeField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)

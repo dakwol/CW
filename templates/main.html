@@ -117,7 +117,7 @@
                             {% if user.is_authenticated %}
                                 <form  method="post">
                                 {% csrf_token %}
-                                    <button id="price" class="btn__card" type="submit" name = "buy_ticket" value={{ tour.price }}|{{ tour.tickets_now }}|{{ tour.tickets_max }}>Купить билет</button>
+                                    <button id="price" class="btn__card" type="submit" name = "buy_ticket" value={{ tour.price }}|{{ tour.tickets_now }}|{{ tour.tickets_max }}|{{ tour.id }}>Купить билет</button>
                                 </form>
                             {% endif %}
                         </div>
@@ -126,7 +126,7 @@
                 {% endfor %}
             {% else %}
                 <div>
-                    <h1 class="res__none">Рейсов с такими данными мы не проводим, приносим прощения. Выберите другие параметры и попробуйте снова</h1>
+                    <h1>Рейсов с такими данными мы не проводим, приносим прощения. Выберите другие параметры и попробуйте снова</h1>
                 </div>
             {% endif %}
             {% if user.is_authenticated and user.is_staff%}
@@ -428,7 +428,6 @@
     </div>
     <footer>
         <div class="content no__pad">
-            <p>"Сайт выполнен студентом группы ПИ-191 Хассаном Ибрагимовичем Киссанович для защиты курсовой работы 2022 г."</p>
         </div>
     </footer>
 {% endblock content %}
