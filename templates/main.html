@@ -15,10 +15,14 @@
                             <span id="account" class="nav__item">{{ user.username }}</span>
                             <span class="nav__item">{{ user.first_name }}</span>
                             <span id="price" class="nav__item">Пополнить</span>
+<<<<<<< HEAD
                             
                             <button id="tiket" class="nav__item-btn">Билеты</button>
                             <button class="nav__item-btn" type="submit" value="1" name="exit" >Выход</button>
                             
+=======
+                            <button class="nav__item-btn" type="submit" value="1" name="exit" >Выход</button>
+>>>>>>> 7c9fa7b19ad9ef13e609ebea2812ff2a63201697
                         </form>
                     {% else %}
                         <span id="account" class="nav__item">Аккаунт</span>
@@ -86,6 +90,7 @@
         <div class="container no__pad">
 
             <h1 class="promotion__title">Туры</h1>
+<<<<<<< HEAD
             {% if data.exists %}
                 {% for tour in data %}
                     <div class="tours__card">
@@ -107,6 +112,29 @@
                             <div class="date">
                                 <h3 class="subtitle__card">Дата заезда</h3>
                                  <h4 class="subtext__card">{{ tour.date_start }}</h4>
+=======
+            
+            {% for tour in data %}
+                <div class="tours__card">
+                <img src="{{ tour.pic }}" class="card__img" alt="">
+                <div class="content__card">
+                    <h3 class="title__card">{{ tour.name }}</h3>
+                    <p class="desc__card">{{ tour.description }}</p>
+                    <div class="footer__card">
+                        <div class="city">
+                            <h3 class="subtitle__card">Города</h3>
+                             {% for town in tour.towns.all %}
+                                 <h4 class="subtext__card">{{ town.name }}</h4>
+                             {% endfor%}
+                        </div>
+                        <div class="sale">
+                            <h3 class="subtitle__card">Цена</h3>
+                            <h4 class="subtext__card" value="100">{{ tour.price }} р</h4>
+                        </div>
+                        <div class="date">
+                            <h3 class="subtitle__card">Дата заезда</h3>
+                             <h4 class="subtext__card">{{ tour.date_start }}</h4>
+>>>>>>> 7c9fa7b19ad9ef13e609ebea2812ff2a63201697
 
                             </div>
                             <div class="date">

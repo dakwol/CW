@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="assets/css/style.min.css">
+    <link rel="stylesheet" href="../../static/css/style.min.css">
     
     <!-- Useful meta tags -->
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -22,7 +22,7 @@
     <!--Видеофон-->
     <div class="video-bg">
     <video autoplay muted loop>
-        <source src="./assets/images/Sunset - 86879.mp4" type="video/mp4">
+        <source src="../../static//images/Sunset - 86879.mp4" type="video/mp4">
       </video>
     </div>
     
@@ -31,8 +31,23 @@
         <nav class="nav">
             <div class="header__logo">Travels</div>
             <div class="nav__container">
-                <a href="#tour" class="nav__item">Туры</a>
-                <a href="#o-nas" class="nav__item">О нас</a>
+                <div class="nav__left">
+                    {% if user.is_authenticated %}
+                        <form method="POST" action="">
+                            {% csrf_token %}
+                            <span id="account" class="nav__item">{{ user.username }}</span>
+                            <span class="nav__item">{{ user.first_name }}</span>
+                            <span id="price" class="nav__item">Пополнить</span>
+                            <button class="nav__item-btn" type="submit" value="1" name="exit" >Выход</button>
+                        </form>
+                    {% else %}
+                        <span id="account" class="nav__item">Аккаунт</span>
+                    {% endif %}
+                </div>
+                <div class="nav__right">
+                    <a href="#tour" class="nav__item">Туры</a>
+                    <a href="#o-nas" class="nav__item">О нас</a>
+                </div>
             </div>
         </nav>
     </header>    
@@ -78,8 +93,9 @@
         <div class="container no__pad">
     
             <h1 class="promotion__title">Туры</h1>
+            
             <div class="tours__card">
-                <img src="./assets/images/Exotic-tropical-beach-sunse.jpg" class="card__img">
+                <img src="../../static//images/Exotic-tropical-beach-sunse.jpg" class="card__img">
                 <div class="content__card">
                     <h3 class="title__card">Название</h3>
                     <p class="desc__card">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita neque pariatur praesentium magnam nihil dolore esse eos culpa. Blanditiis est iste exercitationem, architecto quas asperiores at! In inventore ratione vitae.</p>
@@ -116,7 +132,7 @@
     
     
             <div class="tours__card">
-                <img src="./assets/images/Exotic-tropical-beach-sunse.jpg" class="card__img">
+                <img src="../../static//images/Exotic-tropical-beach-sunse.jpg" class="card__img">
                 <div class="content__card">
                     <h3 class="title__card">Название</h3>
                     <p class="desc__card">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita neque pariatur praesentium magnam nihil dolore esse eos culpa. Blanditiis est iste exercitationem, architecto quas asperiores at! In inventore ratione vitae.</p>
@@ -259,6 +275,11 @@
             </div>
         </div>
     </section>
+    <footer>
+        <div class="content no__pad">
+            <p>"Сайт выполнен студентом группы ПИ-191 Хассаном Ибрагимовичем Киссанович для защиты курсовой работы 2022 г."</p>
+        </div>
+    </footer>
     <!-- JS -->
     <script src="assets/js/app.js"></script>
 </body>
