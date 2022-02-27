@@ -15,7 +15,10 @@
                             <span id="account" class="nav__item">{{ user.username }}</span>
                             <span class="nav__item">{{ user.first_name }}</span>
                             <span id="price" class="nav__item">Пополнить</span>
+                            
+                            <button id="tiket" class="nav__item-btn">Билеты</button>
                             <button class="nav__item-btn" type="submit" value="1" name="exit" >Выход</button>
+                            
                         </form>
                     {% else %}
                         <span id="account" class="nav__item">Аккаунт</span>
@@ -412,6 +415,34 @@
                 </div>
             </div>
         </form>
+    </div>
+
+    <div id="modal__tiket" class="modal">
+        <div class="tiket">
+            <div id="close__mbx" class="close__mbx">
+                <div id="close__modal" class="close__modal"></div>
+            </div>
+            <h1 class="modal__title">Билеты</h1>
+            <div class="modal__tiket-item">
+                <h1 class="tiket__name">Название тура</h1>
+               <div class="tiket__item">
+                   <h2>Период</h2>
+                   <p>название Период</p>
+               </div>
+               <div class="tiket__item">
+                    <h2>Страна</h2>
+                    <p>название Страна</p>
+                </div>
+                <div class="tiket__item">
+                    <h2>Дата покупки</h2>
+                    <p>название дата</p>
+                </div>
+                <div class="tiket__item">
+                    <h2>Стоимость</h2>
+                    <p>название Стоимость</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="modal__reg" class="modal">

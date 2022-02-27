@@ -980,6 +980,46 @@ footer {
 .modal.active {
   display: flex; }
 
+  .tiket{
+    background-color: #fff;
+    width: 500px;
+    height: 600px;
+    color: #222;
+    padding: 4rem 6rem;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+  }
+  
+  .modal__title{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  
+  .modal__tiket-item{
+    font-size: 20px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #222;
+  }
+  
+  .tiket__name{
+    text-align: center;
+  }
+  
+  .tiket__item{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0 0 0;
+    padding: 0 0 10px 0;
+    border-bottom: 1px dashed #000;
+  }
+  .tiket__item:last-child{
+    border:0
+  }
+
 .payment-title {
   width: 100%;
   text-align: center; }
